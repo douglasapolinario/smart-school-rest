@@ -10,12 +10,130 @@
   <url>http://maven.apache.org</url>
   
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+	<dependency>
+		<groupId>org.neo4j</groupId>
+		<artifactId>neo4j-ogm-core</artifactId>
+		<version>2.0.5</version>
+	</dependency>
+
+	<dependency> <!-- If you're using the HTTP driver -->
+		<groupId>org.neo4j</groupId>
+		<artifactId>neo4j-ogm-http-driver</artifactId>
+		<version>2.0.5</version>
+	</dependency>
+
+	<dependency> <!-- If you're using the Embedded driver -->
+		<groupId>org.neo4j</groupId>
+		<artifactId>neo4j-ogm-embedded-driver</artifactId>
+		<version>2.0.5</version>
+	</dependency>
+
+	<dependency>
+		<groupId>br.com.caelum.stella</groupId>
+		<artifactId>caelum-stella-bean-validation</artifactId>
+		<version>2.1.2</version>
+	</dependency>
+
+	<!-- Java EE -->
+	<dependency>
+		<groupId>javax.enterprise</groupId>
+		<artifactId>cdi-api</artifactId>
+		<version>1.2</version><!--$NO-MVN-MAN-VER$ -->
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>javax</groupId>
+		<artifactId>javaee-api</artifactId>
+		<version>7.0</version>
+		<scope>provided</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-classic</artifactId>
+		<version>1.1.2</version>
+	</dependency>
+	<!-- testing -->
+	<dependency>
+		<groupId>org.jboss.weld.se</groupId>
+		<artifactId>weld-se</artifactId>
+		<version>2.2.10.Final</version>
+		<scope>test</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>javax.inject</groupId>
+		<artifactId>javax.inject</artifactId>
+		<version>1</version><!--$NO-MVN-MAN-VER$ -->
+		<scope>provided</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>javax.ws.rs</groupId>
+		<artifactId>javax.ws.rs-api</artifactId>
+		<version>2.0</version>
+		<scope>provided</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>javax.transaction</groupId>
+		<artifactId>javax.transaction-api</artifactId>
+		<version>1.2</version>
+		<scope>provided</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>javax.ejb</groupId>
+		<artifactId>javax.ejb-api</artifactId>
+		<version>3.2</version>
+		<scope>provided</scope>
+		<exclusions>
+			<exclusion>
+				<artifactId>javax.transaction-api</artifactId>
+				<groupId>javax.transaction</groupId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+
+	<!-- Junit / Arquillian -->
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.8.1</version>
+		<scope>test</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>org.jboss.resteasy</groupId>
+		<artifactId>resteasy-client</artifactId>
+		<version>3.0.19.Final</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.jboss.arquillian.extension</groupId>
+		<artifactId>arquillian-rest-client-impl-jersey</artifactId>
+		<version>1.0.0.Alpha3</version>
+		<scope>test</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>org.neo4j</groupId>
+		<artifactId>neo4j-ogm-test</artifactId>
+		<version>2.0.5</version>
+		<scope>test</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>org.mockito</groupId>
+		<artifactId>mockito-all</artifactId>
+		<version>1.10.19</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.jboss</groupId>
+		<artifactId>jboss-vfs</artifactId>
+		<version>3.1.0.Final</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>smart-school-rest</finalName>
@@ -44,6 +162,19 @@
 				</execution>
 			</executions>
 		</plugin>
+		
+		<plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+            <version>2.3.2</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+        <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.12</version>
+        </plugin>
 	</plugins>
   </build>
 </project>
