@@ -7,8 +7,8 @@
   
   <!-- Informa ao RestEasy qual é a classe que iniciará cada webservice -->
 	<context-param>
-		<param-name>javax.ws.rs.Application</param-name>
-		<param-value>br.com.feltex.webservice.servico.WSServico</param-value>
+		<param-name>javax.ws.rs.core.Application</param-name>
+		<param-value>br.com.escola.rest.EscolaService</param-value>
 	</context-param>
  
 	<context-param>
