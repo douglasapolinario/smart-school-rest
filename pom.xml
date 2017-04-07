@@ -9,6 +9,12 @@
   <name>smart-school-rest Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
+  <properties>
+	<version.jetty>9.3.3.v20150827</version.jetty> 
+	<version.jersey>2.14</version.jersey>
+	<version.weld>2.2.5.Final</version.weld> 
+  </properties>
+  
   <dependencies>
 	<dependency>
 		<groupId>org.neo4j</groupId>
@@ -55,7 +61,7 @@
 	<dependency>
 	    <groupId>org.eclipse.jetty</groupId>
 	    <artifactId>jetty-servlet</artifactId>
-	    <version>9.3.3.v20150827</version>
+	    <version>${version.jetty}</version>
 	</dependency>
 
 
@@ -105,6 +111,35 @@
 			</exclusion>
 		</exclusions>
 	</dependency>
+	
+	<!-- Jersey with Jackson -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>${version.jersey}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>${version.jersey}</version>
+		</dependency>
+
+		<!-- Weld for Jersey -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers.glassfish</groupId>
+			<artifactId>jersey-gf-cdi</artifactId>
+			<version>${version.jersey}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers.glassfish</groupId>
+			<artifactId>jersey-gf-cdi-ban-custom-hk2-binding</artifactId>
+			<version>${version.jersey}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-core</artifactId>
+			<version>${version.weld}</version>
+		</dependency>
 
 	<!-- Junit / Arquillian -->
 	<dependency>
@@ -153,10 +188,13 @@
     	<plugin>
 	    	<groupId>org.eclipse.jetty</groupId>
 		    <artifactId>jetty-maven-plugin</artifactId>
-		    <version>9.3.3.v20150827</version>
+		    <version>${version.jetty}</version>
 		    <configuration>
-		    	<jettyEnvXml>src/main/webapp/WEB-INF/jetty-env.xml</jettyEnvXml>
-        		<contextXml>src/main/webapp/WEB-INF/jetty-context.xml</contextXml>
+		    	<scanIntervalSeconds>2</scanIntervalSeconds>
+				<contextXml>${project.basedir}/src/main/webapp/WEB-INF/jetty-context.xml</contextXml>
+				<webApp>
+					<jettyEnvXml>${project.basedir}/src/main/webapp/WEB-INF/jetty-env.xml</jettyEnvXml>
+				</webApp>
             </configuration>
 	    </plugin>
 		<plugin>
@@ -174,7 +212,7 @@
 							<artifactItem>
 								<groupId>org.eclipse.jetty</groupId>
 								<artifactId>jetty-runner</artifactId>
-								<version>9.3.3.v20150827</version>
+								<version>${version.jetty}</version>
 								<destFileName>jetty-runner.jar</destFileName>
 							</artifactItem>
 						</artifactItems>
@@ -191,6 +229,11 @@
                 <target>1.8</target>
             </configuration>
         </plugin>
+        <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>2.4</version>
+		</plugin>
         <plugin>
             <artifactId>maven-surefire-plugin</artifactId>
             <version>2.12</version>

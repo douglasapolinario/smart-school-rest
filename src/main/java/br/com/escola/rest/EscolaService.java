@@ -6,6 +6,8 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
+import br.com.escola.dao.DisciplinaDaoImpl;
+
 @ApplicationPath("/")
 public class EscolaService extends Application {
 
@@ -14,6 +16,7 @@ public class EscolaService extends Application {
  
 	public EscolaService() {
 		singletons.add(new AlunoResource());
+		singletons.add(new DisciplinaDaoImpl());
 	}
  
 	public Set<Class<?>> getClasses() {

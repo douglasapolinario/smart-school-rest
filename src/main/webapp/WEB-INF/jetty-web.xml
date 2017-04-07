@@ -1,8 +1,14 @@
+<?xml version="1.0"  encoding="ISO-8859-1"?>
 <!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
-    <Set name="serverClasses">
-        <Array type="java.lang.String">
-            <Item>-org.eclipse.jetty.servlet.ServletContextHandler.Decorator</Item>
-        </Array>
-    </Set>
+
+	<!-- configuration for deployment in standalone jetty (ignored by jetty-maven-plugin) -->
+	<Set name="contextPath">/</Set>
+
+	<Get class="java.lang.System" name="out">
+		<Call name="println">
+			<Arg>*** JETTY-WEB loaded</Arg>
+		</Call>
+	</Get>
+
 </Configure>
