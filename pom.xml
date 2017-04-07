@@ -150,6 +150,15 @@
     <finalName>smart-school-rest</finalName>
     
     <plugins>
+    	<plugin>
+	    	<groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-maven-plugin</artifactId>
+		    <version>9.3.3.v20150827</version>
+		    <configuration>
+		    	<jettyEnvXml>src/main/webapp/WEB-INF/jetty-env.xml</jettyEnvXml>
+        		<contextXml>src/main/webapp/WEB-INF/jetty-context.xml</contextXml>
+            </configuration>
+	    </plugin>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-dependency-plugin</artifactId>
