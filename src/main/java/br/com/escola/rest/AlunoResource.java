@@ -109,20 +109,20 @@ public class AlunoResource {
 		aluno.setCelular("971634740");
 		aluno.setTelefone("47078194");
 		
-		Iterable<Disciplina> disciplinas = disciplinaDao.findAll();
-		Disciplina disciplina = disciplinas.iterator().hasNext() ? disciplinas.iterator().next() : new Disciplina();
-		disciplina.setDescricao("Matematica");
-
-		Set<Disciplina> disciplinas2 = new HashSet<>();
-		disciplinas2.add(disciplina);
-		aluno.setDisciplinas(disciplinas2);
-	
-		alunoDao.createOrUpdate(aluno);
+//		Iterable<Disciplina> disciplinas = disciplinaDao.findAll();
+//		Disciplina disciplina = disciplinas.iterator().hasNext() ? disciplinas.iterator().next() : new Disciplina();
+//		disciplina.setDescricao("Matematica");
+//
+//		Set<Disciplina> disciplinas2 = new HashSet<>();
+//		disciplinas2.add(disciplina);
+//		aluno.setDisciplinas(disciplinas2);
+//	
+//		alunoDao.createOrUpdate(aluno);
+//		
+//		Iterable<Pessoa> findAll = alunoDao.findAll();
+//		Pessoa pessoas = alunoDao.find(8l);
 		
-		Iterable<Pessoa> findAll = alunoDao.findAll();
-		Pessoa pessoas = alunoDao.find(8l);
-		
-		return Arrays.asList(pessoas);
+		return Arrays.asList(aluno);
 	}
 	
 	@GET
