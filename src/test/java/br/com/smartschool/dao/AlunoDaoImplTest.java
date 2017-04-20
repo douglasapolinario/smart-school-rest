@@ -51,34 +51,38 @@ public class AlunoDaoImplTest extends AbstractTest {
 				.turma("A")
 				.build();
 		
-		Agenda agenda = new Agenda();
-		agenda.setDescricao("Agenda do aluno xpto");
+		Agenda agenda = Agenda.builder()
+				.descricao("Agenda do aluno xpto")
+				.build();
 
-		aluno = new Aluno();
-		aluno.setCelular("(11)971634740");
-		aluno.setCpf("34378323877");
-		aluno.setEmail("aluno1@gmail.com");
-		aluno.setNome("Aluno Hum dos Santos");
-		aluno.setRg("441867935");
-		aluno.setAgenda(agenda);
+		aluno = Aluno.builder()
+				.celular("(11)971634740")
+				.cpf("34378323877")
+				.email("aluno1@gmail.com")
+				.nome("Aluno Hum dos Santos")
+				.rg("441867935")
+				.agenda(agenda)
+				.build();
 		
 		Set<Serie> series = new HashSet<>();
 		series.add(serie);
 		aluno.setSeries(series);
 		
-		Responsavel pai = new Responsavel();
-		pai.setCelular("(11)971634740");
-		pai.setCpf("37636224895");
-		pai.setEmail("pai@gmail.com");
-		pai.setNome("Pai do Aluno Hum");
-		pai.setRg("327761129");
-		
-		Responsavel mae = new Responsavel();
-		mae.setCelular("(11)971634740");
-		mae.setCpf("23456789097");
-		mae.setEmail("mae@gmail.com");
-		mae.setNome("Mae do Aluno Hum");
-		mae.setRg("327761126");
+		Responsavel pai = Responsavel.builder()
+				.celular("(11)971634740")
+				.cpf("37636224895")
+				.email("pai@gmail.com")
+				.nome("Pai do Aluno Hum Hum dos Santos")
+				.rg("327761129")
+				.build();
+
+		Responsavel mae = Responsavel.builder()
+				.celular("(11)971634740")
+				.cpf("23456789097")
+				.email("mae@gmail.com")
+				.nome("Mae do Aluno Hum")
+				.rg("327761126")
+				.build();;
 		
 		Set<Responsavel> responsaveis = new HashSet<>(Arrays.asList(pai, mae));
 		aluno.setResponsaveis(responsaveis);

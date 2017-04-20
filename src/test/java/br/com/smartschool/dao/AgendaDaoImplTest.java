@@ -22,8 +22,9 @@ public class AgendaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void save_agenda() {
-		Agenda agenda = new Agenda();
-		agenda.setDescricao("Agenda do aluno xpto");
+		Agenda agenda = Agenda.builder()
+				.descricao("Agenda do aluno xpto")
+				.build();
 		
 		agendaDao.createOrUpdate(agenda);
 		
@@ -32,8 +33,9 @@ public class AgendaDaoImplTest extends AbstractTest {
 
 	@Test
 	public void update_agenda() {
-		Agenda agenda = new Agenda();
-		agenda.setDescricao("Agenda do aluno xpto");
+		Agenda agenda = Agenda.builder()
+				.descricao("Agenda do aluno xpto")
+				.build();
 		agenda = agendaDao.createOrUpdate(agenda);
 		Assert.assertNotNull(agenda.getId());
 		
@@ -46,8 +48,9 @@ public class AgendaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void remove_agenda() {
-		Agenda agenda = new Agenda();
-		agenda.setDescricao("Agenda do aluno xpto");
+		Agenda agenda = Agenda.builder()
+				.descricao("Agenda do aluno xpto")
+				.build();
 		agendaDao.createOrUpdate(agenda);
 		Assert.assertNotNull(agenda.getId());
 		
@@ -60,8 +63,9 @@ public class AgendaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_agenda_by_id() {
-		Agenda agenda = new Agenda();
-		agenda.setDescricao("Agenda do aluno xpto");
+		Agenda agenda = Agenda.builder()
+				.descricao("Agenda do aluno xpto")
+				.build();
 		agendaDao.createOrUpdate(agenda);
 		Assert.assertNotNull(agenda.getId());
 		
@@ -72,16 +76,19 @@ public class AgendaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_agenda() {
-		Agenda agenda1 = new Agenda();
-		agenda1.setDescricao("Agenda do aluno xpto1");
+		Agenda agenda1 = Agenda.builder()
+				.descricao("Agenda do aluno xpto1")
+				.build();
 		agendaDao.createOrUpdate(agenda1);
 		
-		Agenda agenda2 = new Agenda();
-		agenda2.setDescricao("Agenda do aluno xpto2");
+		Agenda agenda2 = Agenda.builder()
+				.descricao("Agenda do aluno xpto2")
+				.build();
 		agendaDao.createOrUpdate(agenda2);
 		
-		Agenda agenda3 = new Agenda();
-		agenda3.setDescricao("Agenda do aluno xpto3");
+		Agenda agenda3 = Agenda.builder()
+				.descricao("Agenda do aluno xpto3")
+				.build();
 		agendaDao.createOrUpdate(agenda3);
 		
 		List<Agenda> agendas = Arrays.asList(agenda1, agenda2, agenda3);

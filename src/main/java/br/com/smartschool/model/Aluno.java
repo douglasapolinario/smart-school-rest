@@ -15,7 +15,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Builder
 @Data
 @EqualsAndHashCode(callSuper=false)
 @NodeEntity
@@ -35,6 +34,16 @@ public class Aluno extends Pessoa {
 	@Relationship(type = RelationshipType.APRENDE, direction = Relationship.OUTGOING)
 	@JsonManagedReference
 	private Set<Disciplina> disciplinas;
+	
+	@Builder
+	private Aluno(String nome, String email, String senha, String rg, String cpf, String celular, String telefone, 
+			Agenda agenda, Set<Serie> series, Set<Responsavel> responsaveis, Set<Disciplina> disciplinas) {
+		super(nome, email, senha, rg, cpf, celular, telefone);
+		this.agenda = agenda;
+		this.series = series;
+		this.responsaveis = responsaveis;
+		this.disciplinas = disciplinas;
+	}
 	
 	public Optional<Map<String, String>> applyValidations() {
 		Map<String, String> validations = new HashMap<>();

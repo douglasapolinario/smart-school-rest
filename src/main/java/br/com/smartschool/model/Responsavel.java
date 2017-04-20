@@ -10,7 +10,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Builder
 @Data
 @EqualsAndHashCode(callSuper=false)
 @NodeEntity
@@ -20,5 +19,12 @@ public class Responsavel extends Pessoa {
 
 	@Relationship(type = RelationshipType.RESPONSAVEL, direction = Relationship.OUTGOING)
 	private Set<Aluno> alunos;
+	
+	@Builder
+	private Responsavel(String nome, String email, String senha, String rg, String cpf, String celular, String telefone, 
+			Set<Aluno> alunos) {
+		super(nome, email, senha, rg, cpf, celular, telefone);
+		this.alunos = alunos;
+	}
 
 }

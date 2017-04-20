@@ -5,9 +5,11 @@ import java.io.Serializable;
 import org.neo4j.ogm.annotation.NodeEntity;
 
 import br.com.caelum.stella.bean.validation.CPF;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+@AllArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper=false)
 @NodeEntity
@@ -26,7 +28,7 @@ public class Pessoa extends Entity implements Serializable {
 	@CPF
 	private String cpf;
 
-	private String celular;
+	protected String celular;
 	
 	private String telefone;
 	
