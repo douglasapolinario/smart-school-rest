@@ -2,18 +2,18 @@ package br.com.smartschool.dao;
 
 import javax.ejb.Stateless;
 
-import br.com.smartschool.model.Pessoa;
+import br.com.smartschool.model.Aluno;
 
 @Stateless
-public class AlunoDaoImpl extends GenericDao<Pessoa> {
+public class AlunoDaoImpl extends GenericDao<Aluno> {
 
 	@Override
-	public Class<Pessoa> getEntityType() {
-		return Pessoa.class;
+	public Class<Aluno> getEntityType() {
+		return Aluno.class;
 	}
 	
-	public Pessoa findByCPF(String cpf) {
-		StringBuilder queryCypher = new StringBuilder("MATCH (pessoa:Pessoa) WHERE pessoa.cpf = '?' RETURN pessoa");
+	public Aluno findByCPF(String cpf) {
+		StringBuilder queryCypher = new StringBuilder("MATCH (aluno:Aluno) WHERE aluno.cpf = '?' RETURN aluno");
 		queryCypher.insert(queryCypher.indexOf("?"), cpf);
 		queryCypher.deleteCharAt(queryCypher.indexOf("?"));
 		

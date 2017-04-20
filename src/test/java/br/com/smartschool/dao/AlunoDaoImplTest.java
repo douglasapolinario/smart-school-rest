@@ -46,9 +46,10 @@ public class AlunoDaoImplTest extends AbstractTest {
 	private Aluno aluno;
 	
 	public AlunoDaoImplTest() {
-		Serie serie = new Serie();
-		serie.setAno("2º");
-		serie.setTurma("A");
+		Serie serie = Serie.builder()
+				.ano("2º")
+				.turma("A")
+				.build();
 		
 		Agenda agenda = new Agenda();
 		agenda.setDescricao("Agenda do aluno xpto");
