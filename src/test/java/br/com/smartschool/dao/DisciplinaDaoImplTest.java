@@ -22,8 +22,9 @@ public class DisciplinaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void save_disciplina() {
-		Disciplina disciplina = new Disciplina();
-		disciplina.setDescricao("1 disciplina");
+		Disciplina disciplina = Disciplina.builder()
+				.descricao("1 disciplina")
+				.build();
 
 		disciplinaDaoImpl.createOrUpdate(disciplina);
 		Assert.assertNotNull(disciplina.getId());
@@ -31,8 +32,9 @@ public class DisciplinaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void update_disciplina() {
-		Disciplina disciplina = new Disciplina();
-		disciplina.setDescricao("1 disciplina");
+		Disciplina disciplina = Disciplina.builder()
+				.descricao("1 disciplina")
+				.build();
 
 		disciplinaDaoImpl.createOrUpdate(disciplina);
 		Assert.assertNotNull(disciplina.getId());
@@ -44,8 +46,9 @@ public class DisciplinaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void remove_disciplina() {
-		Disciplina disciplina = new Disciplina();
-		disciplina.setDescricao("1 disciplina");
+		Disciplina disciplina = Disciplina.builder()
+				.descricao("1 disciplina")
+				.build();
 
 		disciplinaDaoImpl.createOrUpdate(disciplina);
 		Assert.assertNotNull(disciplina.getId());
@@ -57,8 +60,9 @@ public class DisciplinaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_disciplina_by_id() {
-		Disciplina disciplina = new Disciplina();
-		disciplina.setDescricao("1 disciplina");
+		Disciplina disciplina = Disciplina.builder()
+				.descricao("1 disciplina")
+				.build();
 
 		disciplinaDaoImpl.createOrUpdate(disciplina);
 		Assert.assertNotNull(disciplina.getId());
@@ -69,20 +73,23 @@ public class DisciplinaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_disciplina() {
-		Disciplina disciplina1 = new Disciplina();
-		disciplina1.setDescricao("1 disciplina");
+		Disciplina disciplina1 = Disciplina.builder()
+				.descricao("1 disciplina")
+				.build();
 
 		disciplinaDaoImpl.createOrUpdate(disciplina1);
 		Assert.assertNotNull(disciplina1.getId());
 		
-		Disciplina disciplina2 = new Disciplina();
-		disciplina2.setDescricao("1 disciplina");
+		Disciplina disciplina2 = Disciplina.builder()
+				.descricao("1 disciplina")
+				.build();
 
 		disciplinaDaoImpl.createOrUpdate(disciplina2);
 		Assert.assertNotNull(disciplina2.getId());
 		
-		Disciplina disciplina3 = new Disciplina();
-		disciplina3.setDescricao("1 disciplina");
+		Disciplina disciplina3 = Disciplina.builder()
+				.descricao("1 disciplina")
+				.build();
 
 		disciplinaDaoImpl.createOrUpdate(disciplina3);
 		Assert.assertNotNull(disciplina3.getId());

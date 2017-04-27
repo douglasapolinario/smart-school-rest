@@ -23,8 +23,9 @@ public class FaltaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void save_falta() {
-		Falta falta = new Falta();
-		falta.setTotal(new BigInteger("2"));
+		Falta falta = Falta.builder()
+				.total(new BigInteger("2"))
+				.build();
 
 		faltaDaoImpl.createOrUpdate(falta);
 		Assert.assertNotNull(falta.getId());
@@ -32,8 +33,9 @@ public class FaltaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void update_falta() {
-		Falta falta = new Falta();
-		falta.setTotal(new BigInteger("2"));
+		Falta falta = Falta.builder()
+				.total(new BigInteger("2"))
+				.build();
 
 		faltaDaoImpl.createOrUpdate(falta);
 		Assert.assertNotNull(falta.getId());
@@ -45,8 +47,9 @@ public class FaltaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void remove_falta() {
-		Falta falta = new Falta();
-		falta.setTotal(new BigInteger("2"));
+		Falta falta = Falta.builder()
+				.total(new BigInteger("2"))
+				.build();
 
 		faltaDaoImpl.createOrUpdate(falta);
 		Assert.assertNotNull(falta.getId());
@@ -58,8 +61,9 @@ public class FaltaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_falta_by_id() {
-		Falta falta = new Falta();
-		falta.setTotal(new BigInteger("2"));
+		Falta falta = Falta.builder()
+				.total(new BigInteger("2"))
+				.build();
 
 		faltaDaoImpl.createOrUpdate(falta);
 		Assert.assertNotNull(falta.getId());
@@ -70,20 +74,23 @@ public class FaltaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_falta() {
-		Falta falta1 = new Falta();
-		falta1.setTotal(new BigInteger("2"));
+		Falta falta1 = Falta.builder()
+				.total(new BigInteger("2"))
+				.build();
 
 		faltaDaoImpl.createOrUpdate(falta1);
 		Assert.assertNotNull(falta1.getId());
 		
-		Falta falta2 = new Falta();
-		falta2.setTotal(new BigInteger("2"));
+		Falta falta2 = Falta.builder()
+				.total(new BigInteger("2"))
+				.build();
 
 		faltaDaoImpl.createOrUpdate(falta2);
 		Assert.assertNotNull(falta2.getId());
 		
-		Falta falta3 = new Falta();
-		falta3.setTotal(new BigInteger("2"));
+		Falta falta3 = Falta.builder()
+				.total(new BigInteger("2"))
+				.build();
 
 		faltaDaoImpl.createOrUpdate(falta3);
 		Assert.assertNotNull(falta3.getId());

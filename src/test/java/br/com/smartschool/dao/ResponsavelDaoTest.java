@@ -23,12 +23,13 @@ public class ResponsavelDaoTest extends AbstractTest {
 	
 	@Test
 	public void save_responsavel() {
-		Responsavel responsavel = new Responsavel();
-		responsavel.setCelular("(11)971634740");
-		responsavel.setCpf("232.455.342-19");
-		responsavel.setEmail("pai@gmail.com");
-		responsavel.setNome("Pai do Aluno Hum");
-		responsavel.setRg("327761129");
+		Responsavel responsavel = Responsavel.builder()
+				.celular("(11)971634740")
+				.cpf("232.455.342-19")
+				.email("pai@gmail.com")
+				.nome("Pai do Aluno Hum")
+				.rg("327761129")
+				.build();
 		
 		responsavelDaoImpl.createOrUpdate(responsavel);
 		Assert.assertNotNull(responsavel.getId());
@@ -36,12 +37,13 @@ public class ResponsavelDaoTest extends AbstractTest {
 
 	@Test
 	public void update_responsavel() {
-		Responsavel responsavel = new Responsavel();
-		responsavel.setCelular("(11)971634740");
-		responsavel.setCpf("232.455.342-18");
-		responsavel.setEmail("pai@gmail.com");
-		responsavel.setNome("Pai do Aluno Hum");
-		responsavel.setRg("327761129");
+		Responsavel responsavel = Responsavel.builder()
+				.celular("(11)971634740")
+				.cpf("232.455.342-18")
+				.email("pai@gmail.com")
+				.nome("Pai do Aluno Hum")
+				.rg("327761129")
+				.build();
 		
 		responsavelDaoImpl.createOrUpdate(responsavel);
 		Assert.assertNotNull(responsavel.getId());
@@ -56,12 +58,13 @@ public class ResponsavelDaoTest extends AbstractTest {
 	
 	@Test
 	public void remove_responsavel() {
-		Responsavel responsavel = new Responsavel();
-		responsavel.setCelular("(11)971634740");
-		responsavel.setCpf("232.455.342-16");
-		responsavel.setEmail("pai@gmail.com");
-		responsavel.setNome("Pai do Aluno Hum");
-		responsavel.setRg("327761129");
+		Responsavel responsavel = Responsavel.builder()
+				.celular("(11)971634740")
+				.cpf("232.455.342-16")
+				.email("pai@gmail.com")
+				.nome("Pai do Aluno Hum")
+				.rg("327761129")
+				.build();
 		
 		responsavelDaoImpl.createOrUpdate(responsavel);
 		Assert.assertNotNull(responsavel.getId());
@@ -73,12 +76,13 @@ public class ResponsavelDaoTest extends AbstractTest {
 	
 	@Test
 	public void list_responsavel_by_id() {
-		Responsavel responsavel = new Responsavel();
-		responsavel.setCelular("(11)971634740");
-		responsavel.setCpf("232.455.342-15");
-		responsavel.setEmail("pai@gmail.com");
-		responsavel.setNome("Pai do Aluno Hum");
-		responsavel.setRg("327761129");
+		Responsavel responsavel = Responsavel.builder()
+				.celular("(11)971634740")
+				.cpf("232.455.342-15")
+				.email("pai@gmail.com")
+				.nome("Pai do Aluno Hum")
+				.rg("327761129")
+				.build();
 		
 		responsavelDaoImpl.createOrUpdate(responsavel);
 		Assert.assertNotNull(responsavel.getId());
@@ -89,32 +93,35 @@ public class ResponsavelDaoTest extends AbstractTest {
 	
 	@Test
 	public void list_responsavel() {
-		Responsavel responsavel1 = new Responsavel();
-		responsavel1.setCelular("(11)971634740");
-		responsavel1.setCpf("232.455.342-11");
-		responsavel1.setEmail("pai@gmail.com");
-		responsavel1.setNome("Pai do Aluno Hum");
-		responsavel1.setRg("327761129");
+		Responsavel responsavel1 = Responsavel.builder()
+				.celular("(11)971634740")
+				.cpf("232.455.342-11")
+				.email("pai@gmail.com")
+				.nome("Pai do Aluno Hum")
+				.rg("327761129")
+				.build();
 		
 		responsavelDaoImpl.createOrUpdate(responsavel1);
 		Assert.assertNotNull(responsavel1.getId());
 		
-		Responsavel responsavel2 = new Responsavel();
-		responsavel2.setCelular("(11)971634740");
-		responsavel2.setCpf("232.455.342-10");
-		responsavel2.setEmail("pai@gmail.com");
-		responsavel2.setNome("Pai do Aluno Hum");
-		responsavel2.setRg("327761129");
+		Responsavel responsavel2 = Responsavel.builder()
+				.celular("(11)971634740")
+				.cpf("232.455.342-10")
+				.email("pai@gmail.com")
+				.nome("Pai do Aluno Hum")
+				.rg("327761129")
+				.build();
 		
 		responsavelDaoImpl.createOrUpdate(responsavel2);
 		Assert.assertNotNull(responsavel2.getId());
 		
-		Responsavel responsavel3 = new Responsavel();
-		responsavel3.setCelular("(11)971634740");
-		responsavel3.setCpf("232.455.342-12");
-		responsavel3.setEmail("pai@gmail.com");
-		responsavel3.setNome("Pai do Aluno Hum");
-		responsavel3.setRg("327761129");
+		Responsavel responsavel3 = Responsavel.builder()
+				.celular("(11)971634740")
+				.cpf("232.455.342-12")
+				.email("pai@gmail.com")
+				.nome("Pai do Aluno Hum")
+				.rg("327761129")
+				.build();
 		
 		responsavelDaoImpl.createOrUpdate(responsavel3);
 		Assert.assertNotNull(responsavel3.getId());

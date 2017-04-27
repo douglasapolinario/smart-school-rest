@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 
 import br.com.smartschool.dao.AlunoDaoImpl;
 import br.com.smartschool.dao.DisciplinaDaoImpl;
+import br.com.smartschool.model.Aluno;
 import br.com.smartschool.model.Pessoa;
 
 @Path("/alunos")
@@ -34,7 +35,7 @@ public class AlunoResource {
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response getAll() {
-		Iterable<Pessoa> findAll = alunoDao.findAll();
+		Iterable<Aluno> findAll = alunoDao.findAll();
 		List<Pessoa> pessoas = new ArrayList<>();
 		findAll.forEach(pessoas::add);
 		
@@ -55,14 +56,14 @@ public class AlunoResource {
 	
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
-	public void add(Pessoa aluno) {
+	public void add(Aluno aluno) {
 		System.out.println(aluno.getNome());
 		alunoDao.createOrUpdate(aluno);
 	}
 	
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON})
-	public void update(Pessoa aluno) {
+	public void update(Aluno aluno) {
 		
 	}
 	

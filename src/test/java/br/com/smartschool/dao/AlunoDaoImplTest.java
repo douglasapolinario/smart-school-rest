@@ -88,9 +88,10 @@ public class AlunoDaoImplTest extends AbstractTest {
 		aluno.setResponsaveis(responsaveis);
 		
 		Set<Disciplina> disciplinas = new HashSet<>();
-		Disciplina disciplina = new Disciplina();
-		disciplina.setDescricao("Geografia");
-		disciplina.setSeries(series);
+		Disciplina disciplina = Disciplina.builder()
+				.descricao("Geografia")
+				.series(series)
+				.build();
 		disciplinas.add(disciplina);
 		aluno.setDisciplinas(disciplinas);
 	}
@@ -156,32 +157,35 @@ public class AlunoDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_aluno() {
-		Pessoa aluno1 = new Pessoa();
-		aluno1.setCelular("(11)971634740");
-		aluno1.setCpf("34378323877");
-		aluno1.setEmail("aluno1@gmail.com");
-		aluno1.setNome("Aluno Hum dos Santos");
-		aluno1.setRg("441867935");
+		Aluno aluno1 = Aluno.builder()
+				.celular("(11)971634740")
+				.cpf("34378323877")
+				.email("aluno1@gmail.com")
+				.nome("Aluno Hum dos Santos")
+				.rg("441867935")
+				.build();
 		alunoDao.createOrUpdate(aluno1);
 		
-		Pessoa aluno2 = new Pessoa();
-		aluno2.setCelular("(11)99990987");
-		aluno2.setCpf("23467656433");
-		aluno2.setEmail("aluno2@gmail.com");
-		aluno2.setNome("Aluno Dois dos Santos");
-		aluno2.setRg("441867933");
+		Aluno aluno2 = Aluno.builder()
+				.celular("(11)99990987")
+				.cpf("23467656433")
+				.email("aluno2@gmail.com")
+				.nome("Aluno Dois dos Santos")
+				.rg("441867933")
+				.build();
 		alunoDao.createOrUpdate(aluno2);
 		
-		Pessoa aluno3 = new Pessoa();
-		aluno3.setCelular("(11)98876655");
-		aluno3.setCpf("43265487655");
-		aluno3.setEmail("aluno3@gmail.com");
-		aluno3.setNome("Aluno Tres dos Santos");
-		aluno3.setRg("441867925");
+		Aluno aluno3 = Aluno.builder()
+				.celular("(11)98876655")
+				.cpf("43265487655")
+				.email("aluno3@gmail.com")
+				.nome("Aluno Tres dos Santos")
+				.rg("441867925")
+				.build();
 		alunoDao.createOrUpdate(aluno3);
 		
-		List<Pessoa> alunos = Arrays.asList(aluno1, aluno2, aluno3);
-		List<Pessoa> alunosFromStorage = alunoDao.findAll();
+		List<Aluno> alunos = Arrays.asList(aluno1, aluno2, aluno3);
+		List<Aluno> alunosFromStorage = alunoDao.findAll();
 		
 		Assert.assertArrayEquals(alunos.toArray(), alunosFromStorage.toArray());
 	}

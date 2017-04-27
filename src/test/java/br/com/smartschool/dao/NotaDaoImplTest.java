@@ -23,8 +23,9 @@ public class NotaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void save_nota() {
-		Nota nota = new Nota();
-		nota.setValor(new BigInteger("2"));
+		Nota nota = Nota.builder()
+				.valor(new BigInteger("2"))
+				.build();
 
 		notaDaoImpl.createOrUpdate(nota);
 		Assert.assertNotNull(nota.getId());
@@ -32,8 +33,9 @@ public class NotaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void update_nota() {
-		Nota nota = new Nota();
-		nota.setValor(new BigInteger("2"));
+		Nota nota = Nota.builder()
+				.valor(new BigInteger("2"))
+				.build();
 
 		notaDaoImpl.createOrUpdate(nota);
 		Assert.assertNotNull(nota.getId());
@@ -45,8 +47,9 @@ public class NotaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void remove_nota() {
-		Nota nota = new Nota();
-		nota.setValor(new BigInteger("2"));
+		Nota nota = Nota.builder()
+				.valor(new BigInteger("2"))
+				.build();
 
 		notaDaoImpl.createOrUpdate(nota);
 		Assert.assertNotNull(nota.getId());
@@ -58,8 +61,9 @@ public class NotaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_nota_by_id() {
-		Nota nota = new Nota();
-		nota.setValor(new BigInteger("2"));
+		Nota nota = Nota.builder()
+				.valor(new BigInteger("2"))
+				.build();
 
 		notaDaoImpl.createOrUpdate(nota);
 		Assert.assertNotNull(nota.getId());
@@ -70,20 +74,23 @@ public class NotaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_nota() {
-		Nota nota1 = new Nota();
-		nota1.setValor(new BigInteger("2"));
+		Nota nota1 = Nota.builder()
+				.valor(new BigInteger("2"))
+				.build();
 
 		notaDaoImpl.createOrUpdate(nota1);
 		Assert.assertNotNull(nota1.getId());
 		
-		Nota nota2 = new Nota();
-		nota2.setValor(new BigInteger("2"));
+		Nota nota2 = Nota.builder()
+				.valor(new BigInteger("2"))
+				.build();
 
 		notaDaoImpl.createOrUpdate(nota2);
 		Assert.assertNotNull(nota2.getId());
 		
-		Nota nota3 = new Nota();
-		nota3.setValor(new BigInteger("2"));
+		Nota nota3 = Nota.builder()
+				.valor(new BigInteger("2"))
+				.build();
 
 		notaDaoImpl.createOrUpdate(nota3);
 		Assert.assertNotNull(nota3.getId());

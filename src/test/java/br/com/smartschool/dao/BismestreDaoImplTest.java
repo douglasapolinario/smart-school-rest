@@ -22,8 +22,9 @@ public class BismestreDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void save_bimestre() {
-		Bimestre bimestre = new Bimestre();
-		bimestre.setDescricao("1 bimestre");
+		Bimestre bimestre = Bimestre.builder()
+				.descricao("1 bimestre")
+				.build();
 
 		bimestreDaoImpl.createOrUpdate(bimestre);
 		Assert.assertNotNull(bimestre.getId());
@@ -31,8 +32,9 @@ public class BismestreDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void update_bimestre() {
-		Bimestre bimestre = new Bimestre();
-		bimestre.setDescricao("1 bimestre");
+		Bimestre bimestre = Bimestre.builder()
+				.descricao("1 bimestre")
+				.build();
 
 		bimestreDaoImpl.createOrUpdate(bimestre);
 		Assert.assertNotNull(bimestre.getId());
@@ -44,8 +46,9 @@ public class BismestreDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void remove_bimestre() {
-		Bimestre bimestre = new Bimestre();
-		bimestre.setDescricao("1 bimestre");
+		Bimestre bimestre = Bimestre.builder()
+				.descricao("1 bimestre")
+				.build();
 
 		bimestreDaoImpl.createOrUpdate(bimestre);
 		Assert.assertNotNull(bimestre.getId());
@@ -57,8 +60,9 @@ public class BismestreDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_bimestre_by_id() {
-		Bimestre bimestre = new Bimestre();
-		bimestre.setDescricao("1 bimestre");
+		Bimestre bimestre = Bimestre.builder()
+				.descricao("1 bimestre")
+				.build();
 
 		bimestreDaoImpl.createOrUpdate(bimestre);
 		Assert.assertNotNull(bimestre.getId());
@@ -69,25 +73,31 @@ public class BismestreDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_bimestre() {
-		Bimestre bimestre1 = new Bimestre();
-		bimestre1.setDescricao("1 bimestre");
-
+		Bimestre bimestre1 = Bimestre.builder()
+				.descricao("1 bimestre")
+				.build();
 		bimestreDaoImpl.createOrUpdate(bimestre1);
 		Assert.assertNotNull(bimestre1.getId());
 		
-		Bimestre bimestre2 = new Bimestre();
-		bimestre2.setDescricao("1 bimestre");
-
+		Bimestre bimestre2 = Bimestre.builder()
+				.descricao("2 bimestre")
+				.build();
 		bimestreDaoImpl.createOrUpdate(bimestre2);
 		Assert.assertNotNull(bimestre2.getId());
 		
-		Bimestre bimestre3 = new Bimestre();
-		bimestre3.setDescricao("1 bimestre");
-
+		Bimestre bimestre3 = Bimestre.builder()
+				.descricao("3 bimestre")
+				.build();
 		bimestreDaoImpl.createOrUpdate(bimestre3);
 		Assert.assertNotNull(bimestre3.getId());
 		
-		List<Bimestre> bimestres = Arrays.asList(bimestre1, bimestre2, bimestre3);
+		Bimestre bimestre4 = Bimestre.builder()
+				.descricao("4 bimestre")
+				.build();
+		bimestreDaoImpl.createOrUpdate(bimestre4);
+		Assert.assertNotNull(bimestre4.getId());
+		
+		List<Bimestre> bimestres = Arrays.asList(bimestre1, bimestre2, bimestre3, bimestre4);
 		List<Bimestre> fromStore = bimestreDaoImpl.findAll();
 		
 		Assert.assertArrayEquals(bimestres.toArray(), fromStore.toArray());

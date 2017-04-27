@@ -22,9 +22,10 @@ public class EscolaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void save_escola() {
-		Escola escola = new Escola();
-		escola.setCnpj("35992922000107");
-		escola.setRazaoSocial("Rui Barbosa SA");
+		Escola escola = Escola.builder()
+				.cnpj("35992922000107")
+				.razaoSocial("Rui Barbosa SA")
+				.build();
 
 		escolaDaoImpl.createOrUpdate(escola);
 		Assert.assertNotNull(escola.getId());
@@ -32,9 +33,10 @@ public class EscolaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void update_escola() {
-		Escola escola = new Escola();
-		escola.setCnpj("35992922000107");
-		escola.setRazaoSocial("Rui Barbosa SA");
+		Escola escola = Escola.builder()
+				.cnpj("35992922000107")
+				.razaoSocial("Rui Barbosa SA")
+				.build();
 
 		escolaDaoImpl.createOrUpdate(escola);
 		Assert.assertNotNull(escola.getId());
@@ -46,9 +48,10 @@ public class EscolaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void remove_escola() {
-		Escola escola = new Escola();
-		escola.setCnpj("35992922000107");
-		escola.setRazaoSocial("Rui Barbosa SA");
+		Escola escola = Escola.builder()
+				.cnpj("35992922000107")
+				.razaoSocial("Rui Barbosa SA")
+				.build();
 
 		escolaDaoImpl.createOrUpdate(escola);
 		Assert.assertNotNull(escola.getId());
@@ -60,9 +63,10 @@ public class EscolaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_escola_by_id() {
-		Escola escola = new Escola();
-		escola.setCnpj("35992922000107");
-		escola.setRazaoSocial("Rui Barbosa SA");
+		Escola escola = Escola.builder()
+				.cnpj("35992922000107")
+				.razaoSocial("Rui Barbosa SA")
+				.build();
 
 		escolaDaoImpl.createOrUpdate(escola);
 		Assert.assertNotNull(escola.getId());
@@ -73,23 +77,26 @@ public class EscolaDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_escola() {
-		Escola escola1 = new Escola();
-		escola1.setCnpj("35992922000107");
-		escola1.setRazaoSocial("Rui Barbosa SA");
+		Escola escola1 = Escola.builder()
+				.cnpj("35992922000107")
+				.razaoSocial("Rui Barbosa SA")
+				.build();
 
 		escolaDaoImpl.createOrUpdate(escola1);
 		Assert.assertNotNull(escola1.getId());
 		
-		Escola escola2 = new Escola();
-		escola2.setCnpj("35992922000107");
-		escola2.setRazaoSocial("Rui Barbosa SA");
+		Escola escola2 = Escola.builder()
+				.cnpj("35992922000107")
+				.razaoSocial("Rui Barbosa SA")
+				.build();
 
 		escolaDaoImpl.createOrUpdate(escola2);
 		Assert.assertNotNull(escola2.getId());
 		
-		Escola escola3 = new Escola();
-		escola3.setCnpj("35992922000107");
-		escola3.setRazaoSocial("Rui Barbosa SA");
+		Escola escola3 = Escola.builder()
+				.cnpj("35992922000107")
+				.razaoSocial("Rui Barbosa SA")
+				.build();
 
 		escolaDaoImpl.createOrUpdate(escola3);
 		Assert.assertNotNull(escola3.getId());

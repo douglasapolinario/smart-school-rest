@@ -28,8 +28,9 @@ public class RecadoDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void save_recado() {
-		Agenda agenda = new Agenda();
-		agenda.setDescricao("Agenda do aluno xpto");
+		Agenda agenda = Agenda.builder()
+				.descricao("Agenda do aluno xpto")
+				.build();
 		agendaDaoImpl.createOrUpdate(agenda);
 		Assert.assertNotNull(agenda.getId());
 		
@@ -41,8 +42,9 @@ public class RecadoDaoImplTest extends AbstractTest {
 
 	@Test
 	public void update_recado() {
-		Agenda agenda = new Agenda();
-		agenda.setDescricao("Agenda do aluno xpto");
+		Agenda agenda = Agenda.builder()
+				.descricao("Agenda do aluno xpto")
+				.build();
 		agendaDaoImpl.createOrUpdate(agenda);
 		Assert.assertNotNull(agenda.getId());
 		
@@ -55,25 +57,27 @@ public class RecadoDaoImplTest extends AbstractTest {
 	}
 
 	private Recado populateRecado(Agenda agenda) {
-		Recado recado = new Recado();
-		recado.setData(LocalDateTime.now());
-		recado.setAssunto("Tese");
-		recado.setAgenda(agenda);
-		recado.setTextoRecado("Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
-				+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
-				+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
-				+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
-				+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
-				+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
-				+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
-				+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste ");
+		Recado recado = Recado.builder()
+				.data(LocalDateTime.now())
+				.assunto("Tese")
+				.agenda(agenda)
+				.textoRecado("Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
+						+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
+						+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
+						+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
+						+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
+						+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
+						+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste "
+						+ "Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste ")
+				.build();
 		return recado;
 	}
 	
 	@Test
 	public void remove_agenda() {
-		Agenda agenda = new Agenda();
-		agenda.setDescricao("Agenda do aluno xpto");
+		Agenda agenda = Agenda.builder()
+				.descricao("Agenda do aluno xpto")
+				.build();
 		agendaDaoImpl.createOrUpdate(agenda);
 		Assert.assertNotNull(agenda.getId());
 		
@@ -89,8 +93,9 @@ public class RecadoDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_agenda_by_id() {
-		Agenda agenda = new Agenda();
-		agenda.setDescricao("Agenda do aluno xpto");
+		Agenda agenda = Agenda.builder()
+				.descricao("Agenda do aluno xpto")
+				.build();
 		agendaDaoImpl.createOrUpdate(agenda);
 		Assert.assertNotNull(agenda.getId());
 		
@@ -105,8 +110,9 @@ public class RecadoDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_agenda() {
-		Agenda agenda = new Agenda();
-		agenda.setDescricao("Agenda do aluno xpto");
+		Agenda agenda = Agenda.builder()
+				.descricao("Agenda do aluno xpto")
+				.build();
 		agendaDaoImpl.createOrUpdate(agenda);
 		Assert.assertNotNull(agenda.getId());
 		

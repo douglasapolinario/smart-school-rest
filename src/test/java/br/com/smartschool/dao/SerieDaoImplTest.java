@@ -22,9 +22,10 @@ public class SerieDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void save_nota() {
-		Serie serie = new Serie();
-		serie.setAno("1");
-		serie.setTurma("A");
+		Serie serie = Serie.builder()
+				.ano("1")
+				.turma("A")
+				.build();
 
 		serieDaoImpl.createOrUpdate(serie);
 		Assert.assertNotNull(serie.getId());
@@ -32,9 +33,10 @@ public class SerieDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void update_nota() {
-		Serie serie = new Serie();
-		serie.setAno("1");
-		serie.setTurma("A");
+		Serie serie = Serie.builder()
+				.ano("1")
+				.turma("A")
+				.build();
 
 		serieDaoImpl.createOrUpdate(serie);
 		Assert.assertNotNull(serie.getId());
@@ -47,9 +49,10 @@ public class SerieDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void remove_nota() {
-		Serie serie = new Serie();
-		serie.setAno("1");
-		serie.setTurma("A");
+		Serie serie = Serie.builder()
+				.ano("1")
+				.turma("A")
+				.build();
 
 		serieDaoImpl.createOrUpdate(serie);
 		Assert.assertNotNull(serie.getId());
@@ -61,9 +64,10 @@ public class SerieDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_nota_by_id() {
-		Serie serie = new Serie();
-		serie.setAno("1");
-		serie.setTurma("A");
+		Serie serie = Serie.builder()
+				.ano("1")
+				.turma("A")
+				.build();
 
 		serieDaoImpl.createOrUpdate(serie);
 		Assert.assertNotNull(serie.getId());
@@ -74,23 +78,26 @@ public class SerieDaoImplTest extends AbstractTest {
 	
 	@Test
 	public void list_nota() {
-		Serie serie1 = new Serie();
-		serie1.setAno("1");
-		serie1.setTurma("A");
+		Serie serie1 = Serie.builder()
+				.ano("1")
+				.turma("A")
+				.build();
 		
 		serieDaoImpl.createOrUpdate(serie1);
 		Assert.assertNotNull(serie1.getId());
 		
-		Serie serie2 = new Serie();
-		serie2.setAno("1");
-		serie2.setTurma("A");
+		Serie serie2 = Serie.builder()
+				.ano("1")
+				.turma("A")
+				.build();
 		
 		serieDaoImpl.createOrUpdate(serie2);
 		Assert.assertNotNull(serie2.getId());
 		
-		Serie serie3 = new Serie();
-		serie3.setAno("1");
-		serie3.setTurma("A");
+		Serie serie3 = Serie.builder()
+				.ano("1")
+				.turma("A")
+				.build();
 		
 		serieDaoImpl.createOrUpdate(serie3);
 		Assert.assertNotNull(serie3.getId());

@@ -12,7 +12,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Builder
 @Data
 @EqualsAndHashCode(callSuper=false)
 @NodeEntity
@@ -26,5 +25,13 @@ public class Professor extends Pessoa {
 	@Relationship(type = RelationshipType.LECIONA, direction = Relationship.OUTGOING)
 	@JsonManagedReference
 	private Set<Disciplina> disciplinas;
+	
+	@Builder
+	private Professor(String nome, String email, String senha, String rg, String cpf, String celular, String telefone, 
+			Set<Serie> series, Set<Disciplina> disciplinas) {
+		super(nome, email, senha, rg, cpf, celular, telefone);
+		this.series = series;
+		this.disciplinas = disciplinas;
+	}
 	
 }
