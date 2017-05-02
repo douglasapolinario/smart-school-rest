@@ -53,6 +53,7 @@ public class AlunoDaoImplTest extends AbstractTest {
 		
 		Agenda agenda = Agenda.builder()
 				.descricao("Agenda do aluno xpto")
+				.ano(2017L)
 				.build();
 
 		aluno = Aluno.builder()
@@ -82,7 +83,7 @@ public class AlunoDaoImplTest extends AbstractTest {
 				.email("mae@gmail.com")
 				.nome("Mae do Aluno Hum")
 				.rg("327761126")
-				.build();;
+				.build();
 		
 		Set<Responsavel> responsaveis = new HashSet<>(Arrays.asList(pai, mae));
 		aluno.setResponsaveis(responsaveis);

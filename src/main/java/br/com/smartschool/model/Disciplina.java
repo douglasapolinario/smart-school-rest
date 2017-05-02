@@ -9,13 +9,17 @@ import org.neo4j.ogm.annotation.Relationship;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import br.com.smartschool.model.relationship.type.RelationshipType;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper=false, exclude={"professores", "alunos", "series"})
 @NodeEntity
 public class Disciplina extends Entity implements Serializable {
 

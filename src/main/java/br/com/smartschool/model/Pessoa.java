@@ -8,7 +8,9 @@ import br.com.caelum.stella.bean.validation.CPF;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper=false)
@@ -28,7 +30,7 @@ public class Pessoa extends Entity implements Serializable {
 	@CPF
 	private String cpf;
 
-	protected String celular;
+	private String celular;
 	
 	private String telefone;
 	

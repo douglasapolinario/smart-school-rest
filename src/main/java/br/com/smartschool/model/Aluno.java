@@ -14,9 +14,11 @@ import br.com.smartschool.model.relationship.type.RelationshipType;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper=true, exclude={"agenda", "series", "responsaveis", "disciplinas"})
 @NodeEntity
 public class Aluno extends Pessoa {
 
