@@ -2,6 +2,7 @@ package br.com.smartschool.factory;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
+import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Produces;
 
 import org.neo4j.ogm.session.Session;
@@ -18,6 +19,7 @@ public class Neo4jSessionFactory {
 	}
 	
 	@Produces
+	@Default
 	public Session createSession() {
 		return sessionFactory.openSession();
 	}
