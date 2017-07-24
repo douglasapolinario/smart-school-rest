@@ -23,9 +23,9 @@ public class Responsavel extends Pessoa {
 	private Set<Aluno> alunos;
 	
 	@Builder
-	private Responsavel(String nome, String email, String senha, String rg, String cpf, String celular, String telefone, 
+	private Responsavel(String nome, String sobrenome, String email, String senha, String rg, String cpf, String celular, String telefone, 
 			Set<Aluno> alunos) {
-		super(nome, email, senha, rg, cpf, celular, telefone);
+		super(nome, sobrenome, email, senha, rg, cpf, celular, telefone);
 		this.alunos = alunos;
 	}
 

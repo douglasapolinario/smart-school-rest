@@ -27,9 +27,9 @@ public class Professor extends Pessoa {
 	private Set<Disciplina> disciplinas;
 	
 	@Builder
-	private Professor(String nome, String email, String senha, String rg, String cpf, String celular, String telefone, 
+	private Professor(String nome, String sobrenome, String email, String senha, String rg, String cpf, String celular, String telefone, 
 			Set<Serie> series, Set<Disciplina> disciplinas) {
-		super(nome, email, senha, rg, cpf, celular, telefone);
+		super(nome, sobrenome, email, senha, rg, cpf, celular, telefone);
 		this.series = series;
 		this.disciplinas = disciplinas;
 	}

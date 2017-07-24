@@ -20,6 +20,8 @@ public class Pessoa extends Entity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String nome;
+	
+	private String sobrenome;
 
 	private String email;
 
@@ -36,7 +38,7 @@ public class Pessoa extends Entity implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Pessoa [nome=" + nome + ", email=" + email + ", senha=" + senha + ", rg=" + rg + ", cpf=" + cpf
+		return "Pessoa [nome=" + nome + ", sobrenome=" + sobrenome + ", email=" + email + ", senha=" + senha + ", rg=" + rg + ", cpf=" + cpf
 				+ ", celular=" + celular + ", telefone=" + telefone + "]";
 	}
 

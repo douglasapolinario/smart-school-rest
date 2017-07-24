@@ -38,9 +38,9 @@ public class Aluno extends Pessoa {
 	private Set<Disciplina> disciplinas;
 	
 	@Builder
-	private Aluno(String nome, String email, String senha, String rg, String cpf, String celular, String telefone, 
+	private Aluno(String nome, String sobrenome, String email, String senha, String rg, String cpf, String celular, String telefone, 
 			Agenda agenda, Set<Serie> series, Set<Responsavel> responsaveis, Set<Disciplina> disciplinas) {
-		super(nome, email, senha, rg, cpf, celular, telefone);
+		super(nome, sobrenome, email, senha, rg, cpf, celular, telefone);
 		this.agenda = agenda;
 		this.series = series;
 		this.responsaveis = responsaveis;
