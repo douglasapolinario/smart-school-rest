@@ -14,24 +14,24 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import br.com.smartschool.dao.AlunoDaoImpl;
-import br.com.smartschool.model.Aluno;
+import br.com.smartschool.dao.ResponsavelDaoImpl;
 import br.com.smartschool.model.Pessoa;
+import br.com.smartschool.model.Responsavel;
 
-@Path("/alunos")
-public class AlunoResource {
+@Path("/responsavel")
+public class ResponsavelResource {
 	
 	@Inject
-	private AlunoDaoImpl alunoDao;
+	private ResponsavelDaoImpl responsavelDao;
 	
-	public AlunoResource() {
+	public ResponsavelResource() {
 		
 	}
 
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response getAll() {
-		Iterable<Aluno> findAll = alunoDao.findAll();
+		Iterable<Responsavel> findAll = responsavelDao.findAll();
 		List<Pessoa> pessoas = new ArrayList<>();
 		findAll.forEach(pessoas::add);
 		
@@ -45,21 +45,21 @@ public class AlunoResource {
 	@Path("/{id}")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Pessoa findById(@PathParam("id") Long id) {
-		Pessoa aluno = alunoDao.find(id);
+		Pessoa aluno = responsavelDao.find(id);
 		
 		return aluno;
 	}
 	
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
-	public void add(Aluno aluno) {
-		System.out.println(aluno.getNome());
-		alunoDao.createOrUpdate(aluno);
+	public void add(Responsavel responsavel) {
+		System.out.println(responsavel.getNome());
+		responsavelDao.createOrUpdate(responsavel);
 	}
 	
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON})
-	public void update(Aluno aluno) {
+	public void update(Responsavel aluno) {
 		
 	}
 	

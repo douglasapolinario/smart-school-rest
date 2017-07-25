@@ -10,8 +10,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import br.com.smartschool.cdi.WeldJUnit4Runner;
-import br.com.smartschool.dao.ResponsavelDaoImpl;
-import br.com.smartschool.model.Pessoa;
 import br.com.smartschool.model.Responsavel;
 import br.com.smartschool.util.AbstractTest;
 
@@ -127,7 +125,7 @@ public class ResponsavelDaoTest extends AbstractTest {
 		Assert.assertNotNull(responsavel3.getId());
 		
 		List<Responsavel> responsaveis = Arrays.asList(responsavel1, responsavel2, responsavel3);
-		List<Pessoa> fromStore = responsavelDaoImpl.findAll();
+		List<Responsavel> fromStore = responsavelDaoImpl.findAll();
 		
 		Assert.assertArrayEquals(responsaveis.toArray(), fromStore.toArray());
 	}

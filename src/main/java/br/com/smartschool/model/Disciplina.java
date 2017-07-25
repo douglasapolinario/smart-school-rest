@@ -6,8 +6,6 @@ import java.util.Set;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import br.com.smartschool.model.relationship.type.RelationshipType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,7 +29,6 @@ public class Disciplina extends Entity implements Serializable {
 	private Set<Pessoa> professores;
 
 	@Relationship(type = RelationshipType.APRENDE, direction = Relationship.INCOMING)
-	@JsonBackReference
 	private Set<Pessoa> alunos;
 	
 	@Relationship(type = RelationshipType.GRADE, direction = Relationship.OUTGOING)
