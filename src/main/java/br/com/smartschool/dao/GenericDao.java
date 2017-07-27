@@ -12,20 +12,20 @@ import br.com.smartschool.model.Entity;
 
 public abstract class GenericDao<T> implements Dao<T> {
 
-	private static final int DEPTH_LIST = 0;
-	private static final int DEPTH_ENTITY = 1;
+	private static final int DEPTH_ENTITY = 0;
+	private static final int DEPTH_LIST = 1;
 	
 	@Inject
 	private Session session;
 
 	@Override
 	public List<T> findAll() {
-		return (List<T>) session.loadAll(getEntityType(), DEPTH_LIST);
+		return (List<T>) session.loadAll(getEntityType(), DEPTH_ENTITY);
 	}
 	
 	@Override
 	public T find(Long id) {
-		return session.load(getEntityType(), id, DEPTH_ENTITY);
+		return session.load(getEntityType(), id, DEPTH_LIST);
 	}
 	
 	@Override
@@ -35,7 +35,7 @@ public abstract class GenericDao<T> implements Dao<T> {
 	
 	@Override
 	public T createOrUpdate(T entity) {
-		session.save(entity, DEPTH_ENTITY);
+		session.save(entity, DEPTH_LIST);
 		return find(((Entity) entity).getId());
 	}
 	

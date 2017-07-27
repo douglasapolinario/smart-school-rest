@@ -8,6 +8,8 @@ import java.util.Set;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import br.com.smartschool.model.relationship.type.RelationshipType;
 import lombok.Builder;
 import lombok.Data;
@@ -31,6 +33,7 @@ public class Aluno extends Pessoa {
 	private Set<Serie> series;
 
 	@Relationship(type = RelationshipType.RESPONSAVEL, direction = Relationship.INCOMING)
+	@JsonBackReference
 	private Set<Responsavel> responsaveis;
 
 	@Relationship(type = RelationshipType.APRENDE, direction = Relationship.OUTGOING)
