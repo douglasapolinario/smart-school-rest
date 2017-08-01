@@ -19,5 +19,13 @@ public class ResponsavelDaoImpl extends GenericDao<Responsavel> {
 		
 		return findByCypherQuery(queryCypher.toString());
 	}
+	
+	public Responsavel findByEmail(String email) {
+		StringBuilder queryCypher = new StringBuilder("MATCH (responsavel:Responsavel) WHERE responsavel.email = '?' RETURN responsavel");
+		queryCypher.insert(queryCypher.indexOf("?"), email);
+		queryCypher.deleteCharAt(queryCypher.indexOf("?"));
+		
+		return findByCypherQuery(queryCypher.toString());
+	}
 
 }

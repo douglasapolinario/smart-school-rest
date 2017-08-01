@@ -1,6 +1,5 @@
 package br.com.smartschool.rest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -15,18 +14,21 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
-import br.com.smartschool.dao.ResponsavelDaoImpl;
-import br.com.smartschool.model.Pessoa;
+import br.com.smartschool.business.BusinessResponse;
+import br.com.smartschool.business.ResponsavelBusiness;
 import br.com.smartschool.model.Responsavel;
+
+import static br.com.smartschool.business.BusinessResponse.BusinessResponseStatus.*;
 
 @Path("/responsavel")
 public class ResponsavelResource {
 	
 	@Inject
-	private ResponsavelDaoImpl responsavelDao;
+	private ResponsavelBusiness responsavelBusiness;
 	
 	public ResponsavelResource() {
 		
@@ -35,10 +37,16 @@ public class ResponsavelResource {
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response getAll() {
-		Iterable<Responsavel> findAll = responsavelDao.findAll();
-		List<Pessoa> responsaveis = new ArrayList<>();
-		findAll.forEach(responsaveis::add);
+		BusinessResponse<List<Responsavel>> response  = responsavelBusiness.findAll();
 		
+		if (!response.getStatus().equals(OK)) {
+			return Response
+					.status(Status.BAD_REQUEST)
+					.type(MediaType.APPLICATION_JSON_TYPE)
+					.build();
+		}
+
+		List<Responsavel> responsaveis = response.getContent();
 		return Response
 				.ok(responsaveis)
 				.type(MediaType.APPLICATION_JSON_TYPE)
@@ -49,7 +57,16 @@ public class ResponsavelResource {
 	@Path("/{id}")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response findById(@PathParam("id") Long id) {
-		Responsavel responsavel = responsavelDao.find(id);
+		BusinessResponse<Responsavel> response = responsavelBusiness.findById(id);
+		
+		if (!response.getStatus().equals(OK)) {
+			return Response
+					.status(Status.BAD_REQUEST)
+					.type(MediaType.APPLICATION_JSON_TYPE)
+					.build();
+		}
+		
+		Responsavel responsavel = response.getContent();
 		
 		return Response
 				.ok(responsavel)
@@ -59,8 +76,16 @@ public class ResponsavelResource {
 	
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
+	@Produces({MediaType.APPLICATION_JSON})
 	public Response add(Responsavel responsavel, @Context UriInfo uriInfo) {
-		responsavelDao.createOrUpdate(responsavel);
+		BusinessResponse<Responsavel> response = responsavelBusiness.save(responsavel);
+		
+		if (!response.getStatus().equals(OK)) {
+			return Response
+					.status(Status.BAD_REQUEST)
+					.type(MediaType.APPLICATION_JSON_TYPE)
+					.build();
+		}
 		
 		UriBuilder builder = uriInfo.getAbsolutePathBuilder();
 		builder.path(responsavel.getId().toString());
@@ -72,14 +97,37 @@ public class ResponsavelResource {
 	
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON})
-	public Response update(Responsavel aluno) {
-		return null;
+	public Response update(Responsavel responsavel) {
+		BusinessResponse<Responsavel> response = responsavelBusiness.update(responsavel);
+		
+		if (!response.getStatus().equals(OK)) {
+			return Response
+					.status(Status.BAD_REQUEST)
+					.type(MediaType.APPLICATION_JSON_TYPE)
+					.build();
+		}
+		
+		return Response
+				.ok(response.getContent())
+				.type(MediaType.APPLICATION_JSON_TYPE)
+				.build();
 	}
 	
 	@DELETE
+	@Path("/{id}")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response delete(@PathParam("id") Long id) {
-		responsavelDao.delete(id);
+		BusinessResponse<Responsavel> response = responsavelBusiness.findById(id);
+		
+		if (!response.getStatus().equals(OK)) {
+			return Response
+					.status(Status.BAD_REQUEST)
+					.type(MediaType.APPLICATION_JSON_TYPE)
+					.build();
+		}
+		
+		Responsavel responsavel = response.getContent();
+		responsavelBusiness.delete(responsavel);
 		
 		return Response
 				.noContent()
