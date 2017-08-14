@@ -1,5 +1,7 @@
 package br.com.smartschool.rest;
 
+import static br.com.smartschool.business.BusinessResponse.BusinessResponseStatus.OK;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -21,8 +23,7 @@ import javax.ws.rs.core.UriInfo;
 import br.com.smartschool.business.BusinessResponse;
 import br.com.smartschool.business.ResponsavelBusiness;
 import br.com.smartschool.model.Responsavel;
-
-import static br.com.smartschool.business.BusinessResponse.BusinessResponseStatus.*;
+import br.com.smartschool.security.annotations.Publico;
 
 @Path("/responsavel")
 public class ResponsavelResource {
@@ -42,6 +43,7 @@ public class ResponsavelResource {
 		if (!response.getStatus().equals(OK)) {
 			return Response
 					.status(Status.BAD_REQUEST)
+					.entity(response.getMessages())
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.build();
 		}
@@ -56,12 +58,14 @@ public class ResponsavelResource {
 	@GET
 	@Path("/{id}")
 	@Produces({MediaType.APPLICATION_JSON})
+	@Publico
 	public Response findById(@PathParam("id") Long id) {
 		BusinessResponse<Responsavel> response = responsavelBusiness.findById(id);
 		
 		if (!response.getStatus().equals(OK)) {
 			return Response
 					.status(Status.BAD_REQUEST)
+					.entity(response.getMessages())
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.build();
 		}
@@ -83,6 +87,7 @@ public class ResponsavelResource {
 		if (!response.getStatus().equals(OK)) {
 			return Response
 					.status(Status.BAD_REQUEST)
+					.entity(response.getMessages())
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.build();
 		}
@@ -97,12 +102,14 @@ public class ResponsavelResource {
 	
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON})
+	@Produces({MediaType.APPLICATION_JSON})
 	public Response update(Responsavel responsavel) {
 		BusinessResponse<Responsavel> response = responsavelBusiness.update(responsavel);
 		
 		if (!response.getStatus().equals(OK)) {
 			return Response
 					.status(Status.BAD_REQUEST)
+					.entity(response.getMessages())
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.build();
 		}
@@ -122,6 +129,7 @@ public class ResponsavelResource {
 		if (!response.getStatus().equals(OK)) {
 			return Response
 					.status(Status.BAD_REQUEST)
+					.entity(response.getMessages())
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.build();
 		}
