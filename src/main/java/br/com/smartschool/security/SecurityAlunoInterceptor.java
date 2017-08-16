@@ -7,11 +7,11 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
-import br.com.smartschool.security.annotations.Publico;
+import br.com.smartschool.security.annotations.PrivadoAluno;
 
-@Publico
+@PrivadoAluno
 @Interceptor
-public class SecurityInterceptor {
+public class SecurityAlunoInterceptor {
 
 	@AroundInvoke
 	public Object handle(InvocationContext joinPoint) throws Exception {

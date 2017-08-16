@@ -7,7 +7,9 @@
 	bean-discovery-mode="all">
 
 	<interceptors>
-	    <class>br.com.smartschool.security.SecurityInterceptor</class>
+	    <class>br.com.smartschool.security.SecurityAdmInterceptor</class>
+	    <class>br.com.smartschool.security.SecurityAlunoInterceptor</class>
+	    <class>br.com.smartschool.security.SecurityResponsavelInterceptor</class>
 	</interceptors>
 
 </beans>

@@ -23,9 +23,10 @@ import javax.ws.rs.core.UriInfo;
 import br.com.smartschool.business.BusinessResponse;
 import br.com.smartschool.business.ResponsavelBusiness;
 import br.com.smartschool.model.Responsavel;
-import br.com.smartschool.security.annotations.Publico;
+import br.com.smartschool.security.annotations.PrivadoResponsavel;
 
 @Path("/responsavel")
+@PrivadoResponsavel
 public class ResponsavelResource {
 	
 	@Inject
@@ -58,7 +59,6 @@ public class ResponsavelResource {
 	@GET
 	@Path("/{id}")
 	@Produces({MediaType.APPLICATION_JSON})
-	@Publico
 	public Response findById(@PathParam("id") Long id) {
 		BusinessResponse<Responsavel> response = responsavelBusiness.findById(id);
 		
