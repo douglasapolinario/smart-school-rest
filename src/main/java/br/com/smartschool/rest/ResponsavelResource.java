@@ -23,11 +23,11 @@ import javax.ws.rs.core.UriInfo;
 import br.com.smartschool.business.BusinessResponse;
 import br.com.smartschool.business.ResponsavelBusiness;
 import br.com.smartschool.model.Responsavel;
-import br.com.smartschool.security.annotations.PrivadoResponsavel;
+import br.com.smartschool.model.enums.AuthorityEnum;
+import br.com.smartschool.security.annotations.Authorities;
 
 @Path("/responsavel")
-@PrivadoResponsavel
-public class ResponsavelResource {
+public class ResponsavelResource extends RestAbstractResource {
 	
 	@Inject
 	private ResponsavelBusiness responsavelBusiness;
@@ -59,6 +59,7 @@ public class ResponsavelResource {
 	@GET
 	@Path("/{id}")
 	@Produces({MediaType.APPLICATION_JSON})
+	@Authorities(values={AuthorityEnum.RESPONSAVEL, AuthorityEnum.ALUNO})
 	public Response findById(@PathParam("id") Long id) {
 		BusinessResponse<Responsavel> response = responsavelBusiness.findById(id);
 		
@@ -81,6 +82,7 @@ public class ResponsavelResource {
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_JSON})
+	@Authorities(values={AuthorityEnum.RESPONSAVEL, AuthorityEnum.ALUNO})
 	public Response add(Responsavel responsavel, @Context UriInfo uriInfo) {
 		BusinessResponse<Responsavel> response = responsavelBusiness.save(responsavel);
 		

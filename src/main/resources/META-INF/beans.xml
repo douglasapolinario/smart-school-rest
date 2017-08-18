@@ -6,10 +6,4 @@
 		http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
 	bean-discovery-mode="all">
 
-	<interceptors>
-	    <class>br.com.smartschool.security.SecurityAdmInterceptor</class>
-	    <class>br.com.smartschool.security.SecurityAlunoInterceptor</class>
-	    <class>br.com.smartschool.security.SecurityResponsavelInterceptor</class>
-	</interceptors>
-
 </beans>

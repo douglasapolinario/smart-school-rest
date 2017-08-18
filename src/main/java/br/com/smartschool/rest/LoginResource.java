@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 import br.com.smartschool.model.Pessoa;
 
 @Path("/login")
-public class LoginResource {
+public class LoginResource extends RestAbstractResource {
 	
 	
 	@POST

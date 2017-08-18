@@ -5,11 +5,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import javax.interceptor.InterceptorBinding;
+import br.com.smartschool.model.enums.AuthorityEnum;
 
-@InterceptorBinding
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
-public @interface PrivadoResponsavel {
-
+public @interface Authorities {
+	public AuthorityEnum[] values();
 }

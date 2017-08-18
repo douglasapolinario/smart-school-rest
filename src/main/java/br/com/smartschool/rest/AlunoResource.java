@@ -19,7 +19,7 @@ import br.com.smartschool.model.Aluno;
 import br.com.smartschool.model.Pessoa;
 
 @Path("/alunos")
-public class AlunoResource {
+public class AlunoResource extends RestAbstractResource {
 	
 	@Inject
 	private AlunoDaoImpl alunoDao;

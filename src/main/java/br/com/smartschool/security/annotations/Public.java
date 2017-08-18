@@ -7,9 +7,9 @@ import java.lang.annotation.Target;
 
 import javax.interceptor.InterceptorBinding;
 
-@InterceptorBinding
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
-public @interface Publico {
+@InterceptorBinding
+public @interface Public {
 
 }
